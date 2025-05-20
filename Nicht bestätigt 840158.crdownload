@@ -1,0 +1,28 @@
+
+document.getElementById('spinButton').addEventListener('click', function() {
+    const symbols = ['👜', '💎', '🌸'];
+    const reel1 = document.getElementById('reel1');
+    const reel2 = document.getElementById('reel2');
+    const reel3 = document.getElementById('reel3');
+    
+    const result1 = symbols[Math.floor(Math.random() * symbols.length)];
+    const result2 = symbols[Math.floor(Math.random() * symbols.length)];
+    const result3 = symbols[Math.floor(Math.random() * symbols.length)];
+    
+    reel1.textContent = result1;
+    reel2.textContent = result2;
+    reel3.textContent = result3;
+    
+    let resultText = '';
+    if (result1 === result2 && result2 === result3) {
+        resultText = 'Congratulations! You won a 15% discount!';
+    } else if (result1 === result2 || result2 === result3 || result1 === result3) {
+        resultText = 'Great! You won a 10% discount!';
+    } else if (result1 === result2 || result2 === result3 || result1 === result3) {
+        resultText = 'Nice! You won a 5% discount!';
+    } else {
+        resultText = 'Try again!';
+    }
+    
+    document.getElementById('result').textContent = resultText;
+});
